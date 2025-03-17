@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:wght@100..900&family=Martian+Mono:wght@100..800&family=Noto+Sans+Old+South+Arabian&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Emblema+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Emblema+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-    --font: Poppins;
+    --h-font: Lobster;
+    --text-font: Poppins;
     --header-bg-color: #012b28;
     --web-site-bg-color: #03312d; 
 }
@@ -10,7 +12,6 @@
     margin: 0;
     padding: 0;
     background-color: var(--web-site-bg-color);
-    font-family: var(--font);
 }
 
 
@@ -49,23 +50,16 @@ h1 {
     justify-content: center;
     align-items: center;
     position: absolute;
-    left: 212.374px;
-    top: 30%;
+    left: 215.33px;
+    top: 54px;
     height: 90px;
     border: 1px solid black;
     z-index: 1;
     background-color: transparent;
     font-size: 80px;
-}
-
-.aboutTeam {
-    width: 500px;
-    height: 130px;
-    position: relative;
-    top: 10px;
-    background-color: rgba(255, 255, 255, .7);
-    border: 1px solid black;
-    opacity: 0;
+    color: #d0a32c;
+    /* opacity: 0.95; */
+    font-family: var(--h-font);
 }
 
 h1:hover + .aboutTeam {
@@ -73,7 +67,20 @@ h1:hover + .aboutTeam {
 }
 
 h1:hover {
-    animation: hiddenH1 .5s ease-out forwards;
+    animation: showNameTop .5s ease-out forwards;
+    cursor: none;
+}
+
+.aboutTeam {
+    box-sizing: border-box;
+    width: 600px;
+    height: 200px;
+    padding: 10px;
+    position: relative;
+    background-color: rgba(255, 255, 255, .7);
+    border: 1px solid black;
+    opacity: 0;
+    border-radius: 10px;
 }
 
 @keyframes showAbout {
@@ -82,16 +89,48 @@ h1:hover {
     }
 
     to {
-        opacity: .8;
+        opacity:.7;
     }
 }
 
-@keyframes hiddenH1 {
-    from { opacity: 1;}
-    to {opacity: .1;}
+/* @keyframes hiddenH1 {
+    from { opacity: 1;
+    color: #d0a32c;
+    }
+    to { opacity: .06;
+        color: #000;
+    }
+} */
+
+@keyframes showNameTop {
+    0% {   
+        height: 90px;
+        left: 215.33px;
+        top: 54px;
+        font-size: 80px; 
+    }
+
+    25% {
+        height: 80px;
+        
+    
+    }
+
+    50% {
+        height: 80px;
+
+    }
+
+    75% {
+        height: 80px;
+
+    }
+
+    100% {
+        height: 90px;
+
+    }
 }
-
-
 
 
 
