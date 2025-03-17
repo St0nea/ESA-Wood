@@ -1,3 +1,7 @@
+:root {
+    --t-myHeader: 0px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,15 +12,24 @@
     display: flex;
 } */
 
-#myH1 {
+.header {
     position: absolute;
-    left: 42.8%;
+    height: 120px;
+    width: 100%;
+    /* border: 1px solid black; */
     top: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#myH1 {
+    display: grid;
+    position: relative;
+    text-align: center;
     height: 120px;
-    width: 210px;
+    width: 220px;
+    max-width: 100%;
     font-size: 90px;
     border: 1px solid black;
     cursor: pointer;
@@ -29,28 +42,28 @@
 /* keyframe setup for myH1*/
 @keyframes showNameTop {
     0% {   
-        top: 300px;
+        top: var(--t-myHeader);
         font-size: 90px; 
     }
 
     25% {
         font-size: 80px;
-        top: 315px;
+        top: 15px;
     }
 
     50% {
         font-size: 70px;
-        top: 270px;
+        top: -45px;
     }
 
     75% {
         font-size: 70px;
-        top: 230px;
+        top: -70px;
     }
 
     100% {
         font-size: 70px;
-        top: 200px;
+        top: -100px;
         height: 80px;
     }
 }
@@ -61,18 +74,27 @@
     animation: showNameTop .5s ease-out forwards;
 }
 
+.aboutTeamContainer {
+    position: relative;
+    top: 300px;
+    width: auto;
+    height: 300px;
+    display: grid;
+    border: 1px solid black;
+}
+
 /* about team box */
 #boxOfText {
-    position: absolute;
+    position: relative;
     border: 1px solid black;
     width: 500px;
     height: 300px;
-    top: 300px;
-    left: 42.8%;
+    /* left: 35%;  --> not needed because its written in the keyframe in from{} statement*/
     opacity: 0;
+    overflow: hidden; /*--> makes the box not go out of sight */
 }
 
-/* pre-applied class  */
+/* pre-applied class for boxOfText */
 .hiddenTextBox {
     display: none;
 }
@@ -87,8 +109,8 @@
 
 /* moving the content box to the right side */
 @keyframes textBoxMove {
-    from {top: 300px; opacity: 0;}
-    to {top: 300px; left: calc(42.8% + 100px); opacity: 1;}
+    from {left: 35%; opacity: 0;}
+    to {left: calc(35% + 90px); opacity: 1;}
 }
 
 /* adding a team picture on the left side of the content box */
@@ -104,8 +126,6 @@
     width: 200px;
     position: absolute;
     border: 1px solid black;
-    left: 43.1%;
-    top: 300px;
     opacity: 0;
 }
 
@@ -121,6 +141,6 @@
 
 /* move picture to the left */
 @keyframes movePicture {
-    from {left: 43.1%; opacity: 0;}
-    to {left: calc(43.1% - 110px);opacity: 1;}
+    from {left: 35%; opacity: 0;}
+    to {left: calc(35% - 120px);opacity: 1;}
 }
