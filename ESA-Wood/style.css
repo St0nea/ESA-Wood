@@ -1,146 +1,150 @@
-@import url('https://fonts.googleapis.com/css2?family=Emblema+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Emblema+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 :root {
-    --h-font: Lobster;
-    --text-font: Poppins;
-    --header-bg-color: #012b28;
-    --web-site-bg-color: #03312d; 
+    --t-myHeader: 0px;
 }
 
 * {
     margin: 0;
     padding: 0;
-    background-color: var(--web-site-bg-color);
-}
-
-
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    background-color: var(--header-bg-color);
-    box-shadow: 0px 5px 20px;
-    position: relative;
-}
-
-#logo {
-    height: 220px;
-    width: auto;
-}
-
-.bodyElements {
-    display: flex;
-    justify-content: center;
-}
-
-.team {
-    position: relative;
-    top: 20px;
-    display: flex;
-    justify-content: center;
-    border: 1px solid black;
-    height: 200px;
-    width: 600px;
-}
-
-h1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    left: 215.33px;
-    top: 54px;
-    height: 90px;
-    border: 1px solid black;
-    z-index: 1;
-    background-color: transparent;
-    font-size: 80px;
-    color: #d0a32c;
-    /* opacity: 0.95; */
-    font-family: var(--h-font);
-}
-
-h1:hover + .aboutTeam {
-    animation: showAbout .5s ease-in forwards;
-}
-
-h1:hover {
-    animation: showNameTop .5s ease-out forwards;
-    cursor: none;
-}
-
-.aboutTeam {
     box-sizing: border-box;
-    width: 600px;
-    height: 200px;
-    padding: 10px;
+    background-color: #595959;
+}
+
+.header {
+    position: absolute;
+    height: 120px;
+    width: 100%;
+    /* border: 1px solid black; */
+    top: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#myH1 {
+    display: grid;
     position: relative;
-    background-color: rgba(255, 255, 255, .7);
-    border: 1px solid black;
-    opacity: 0;
-    border-radius: 10px;
+    text-align: center;
+    height: 120px;
+    width: 220px;
+    max-width: 100%;
+    font-size: 90px;
+    /* border: 1px solid black; */
+    cursor: pointer;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
 }
 
-@keyframes showAbout {
-    from {
-        opacity: 0;
-    }
 
-    to {
-        opacity:.7;
-    }
-}
-
-/* @keyframes hiddenH1 {
-    from { opacity: 1;
-    color: #d0a32c;
-    }
-    to { opacity: .06;
-        color: #000;
-    }
-} */
-
+/* keyframe setup for myH1*/
 @keyframes showNameTop {
     0% {   
-        height: 90px;
-        left: 215.33px;
-        top: 54px;
-        font-size: 80px; 
-    }
-
-    25% {
-        height: 80px;
-        
-    
+        top: var(--t-myHeader);
+        font-size: 90px; 
     }
 
     50% {
-        height: 80px;
-
+        font-size: 80px;
+        top: 30px;
     }
-
-    75% {
-        height: 80px;
-
-    }
-
+    
     100% {
-        height: 90px;
-
+        font-size: 70px;
+        top: -120px;
+        height: 80px;
     }
 }
+/* maybe implement transform later */
 
-
-
-/* GOOD SOLUTION: */
-/* h1:hover + .aboutTeam {
-    visibility: visible;
-    opacity: 1;
+/* triggering the animation by adding a seperate trigger class for myH1*/
+.trigger {
+    animation: showNameTop .5s ease-out forwards;
 }
 
-.aboutTeam {
-    visibility: hidden;
-    transition: visibility 0s, opacity 0.5s linear;
-} */
+.textBox-wrapper {
+    position: relative;
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+    top: 300px;
+    width: auto;
+    height: 300px;
+    /* border: 1px solid black; */
+}
+
+/* about team box */
+#boxOfText {
+    position: relative;
+    border: 1px solid black;
+    width: 500px;
+    height: 300px;
+    /* left: 35%;  --> not needed because its written in the keyframe in from{} statement*/
+    opacity: 0;
+    overflow: hidden; /*--> makes the box not go out of sight */
+    padding: 10px;
+    box-shadow: 6px 6px 8px 5px rgba(256,256,256,0.3);
+                /* first makes it go left/right ; second one makes it go up and down
+                third one makes it more glowy/blurry ; fourth one makes it wider */
+}
+
+/* pre-applied class for boxOfText */
+.hiddenTextBox {
+    display: none;
+}
+
+/* changing the pre-applied class for the content box to show */
+.showTextBox {
+    display: block;
+    animation: textBoxMove .5s ease-in-out forwards;
+    animation-delay: .4s;
+}
+
+.aboutTeamText {
+    position: relative;
+    border: 1px solid green;
+}
+
+
+/* moving the content box to the right side */
+@keyframes textBoxMove {
+    from {left: 35%; opacity: 0;}
+    to {left: calc(35% + 140px); opacity: 1;}
+}
+
+/* pictureBox */
+#pictureBox {
+    height: 300px;
+    width: 200px;
+    position: absolute;
+    border: 1px solid black;
+    opacity: 0;
+    box-shadow: -6px 6px 8px 5px rgba(256,256,256,0.3);
+}
+
+.hiddenPicture {
+    display: none;
+}
+
+.showPicture {
+    display: block;
+    animation: movePicture .5s linear forwards;
+    animation-delay: .4s;
+}
+
+/* move picture to the left */
+@keyframes movePicture {
+    from {left: 35%; opacity: 0;}
+    to {left: calc(35% - 70px);opacity: 1;}
+}
+
+
+
+
+
+
+/* adding a team picture on the left side of the content box */
+/* --make the picture keyframe the same as the content box for how it moves*/
+/* --the picture has to show the same time and on the same click event as the content box*/
+/* --> maybe make it so when the content box is hovered it show the picture??(experiment with it) */
+    /* --> if this will be done, make the animation of the content box going to the right at the time when the content box is hovered and picture box shows */
+/* --finish detailing of the positioning of the header, content box and picture box */
