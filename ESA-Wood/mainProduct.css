@@ -1,0 +1,62 @@
+/* create a trigger-show-content for h1*/
+/* create a display css for product image and product description */
+* {
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+#product-img {
+    --gap: 15px;
+    --num-cols: 2;
+    --row-height: 300px;
+
+    box-sizing: border-box;
+    padding: var(--gap);
+    display: grid;
+    grid-template-columns: repeat(var(--num-cols), 300px);    /*sets how many columns we have(preset in a var) and the 300px sets the space in between the images in columns*/
+    grid-auto-rows: var(--row-height);  /*how much space is there in between rows */
+    gap: var(--gap);
+    /* overflow-y: hidden; */
+    border: 1px solid black;
+}
+
+#product-img > img {
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
+    object-fit: cover;  /*makes the images respond to the web page size*/
+}
+
+@media (max-width: 648px) {
+    #product-img {
+        --num-cols: 2;
+        --row-height: 270px;
+        --gap: 12px;
+        grid-template-columns: repeat(var(--num-cols), 260px);
+    }
+
+    #product-img > img {
+        width: 100%;
+        max-width: 300px;
+        height: 100%;
+    }
+}
+
+@media (max-width: 568px) {
+    #product-img {
+        --num-cols: 2;
+        --row-height: 240px;
+        --gap: 9px;
+        grid-template-columns: repeat(var(--num-cols), 250px);
+    }
+
+    #product-img > img {
+        width: 100%;
+        max-width: 300px;
+        height: 100%;
+    }
+}
