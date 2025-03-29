@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  background-color: #03312d;
+  --button-font:Poppins;
+  --box-gap: 10px;
+  overflow-x: hidden;
+}
+
+header {
+  height: 250px;
+  width: 100%;
+  display: flex;
+  border: 1px solid black;
+  position: relative;
+}
+header nav {
+  --col-cout: 3;
+  --row-cout: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(var(--col-cout));
+  gap: var(--box-gap);
+  border: 1px solid black;
+  height: 248px;
+  position: absolute;
+  right: 0;
+}
+header nav .about-us, header nav .about-product, header nav .contact {
+  width: 150px;
+  height: 70px;
+  border: 1px solid black;
+  font-size: 1.5em;
+  font-family: var(--button-font);
+  cursor: pointer;
+}
+header nav .about-us p, header nav .about-product p, header nav .contact p {
+  position: relative;
+  top: 24%;
+  text-align: center;
+}/*# sourceMappingURL=aboutTeamTest.css.map */
