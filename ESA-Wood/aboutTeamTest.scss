@@ -1,51 +1,250 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
+
     margin: 0;
     padding: 0;
-    background-color: #03312d;
-    --button-font:Poppins;
-    --box-gap: 10px;
+    background-color: #042b2b;
+    --site-font:Poppins;
+    --button-font-size: 1.5rem;
+    --button-hover-bg: #d0a32c;
+    --button-width: 95px;
+    --box-gap: 30px;
+    --font-color: #d0a32c;
+    --font-color-hover: #042b2b;
     overflow-x: hidden;
 }
 
+body {
+    height: 2000px;
+}
+
+
+//WELCOME PAGE
 header {
-    height: 250px;
-    width: 100%;
-    display: flex;
-    border: 1px solid black;
+    height: 100vh;
+    width: auto;
 
-    position: relative;
+    margin: 0;
+    padding: 0;
 
-    nav {
-        --col-cout: 3;
-        --row-cout: 1;
-        display: flex;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-rows: auto;
+    
+    // border: 1px solid black;
+
+    img {
+        position: relative;
+        top: 100px;
+
+        // border: 1px solid black;
+    }
+
+    nav {    
+        //setting up the buttons
+        position: relative;
+        display: grid;
         justify-content: center;
         align-items: center;
-        grid-template-columns: repeat(var(--col-cout));
-        // grid-template-rows: repeat(var(--row-cout));
         gap: var(--box-gap);
-        border: 1px solid black;
-        height: 248px;
 
-        position: absolute;
-        right: 0;
+        // border: 1px solid black;
         
+        
+        // --col-cout: 3;
+        // --row-cout: 1;
+        // grid-template-columns: repeat(var(--col-cout));  //needed for when you have more(above 5) elements to work with
+
         .about-us, .about-product, .contact {
-            width: 150px;
-            height: 70px;
-            border: 1px solid black;
-            font-size: 1.5em;
-            font-family: var(--button-font);
+            font-family: var(--site-font);
+            font-size: var(--button-font-size);
+            padding: 5px;
+            text-align: center;
+            color: var(--font-color);
+
+            border-radius: 3px;
+
+            position: relative;
+            // left: 15px;
+
+            // border: 1px solid black;
+
             cursor: pointer;
 
-            p {
-                // border: 1px solid black;
+            &:hover {
+                background-color: var(--button-hover-bg);
+                color: var(--font-color-hover);
+                animation: showOnScreen .4s linear forwards;
+            }
+        }
+
+        .about-product {
+            position: relative;
+            // left: 3px;   //potential maybe
+        }
+    }
+}
+
+
+//PRODUCT RANGE
+.show-of-products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+
+    //setting font for child elements
+    font-family: var(--site-font);
+
+    border: 1px solid black;
+    
+    .monitor-stand {
+        //sets how elements will be placed in the site
+        display: grid;
+
+        border: 1px solid aqua;
+
+        .monitor-stand-heading {
+            //setting font
+            font-weight: 400;
+            color: var(--font-color);
+            text-align: center;
+        }
+
+        .monitor-stand-images {
+            //declearing image properties
+            --img-width: 200px;
+            --image-gap: 20px;
+            
+            //setting parent element size
+            width: 900px;
+            height: 320px;
+            
+            //parent element properties
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--image-gap);
+            overflow-y: hidden;
+
+            //setting margin-bottom for textbox to go lower without it making unnecessary overflow
+            margin-bottom: 20px;
+
+            // border: 1px solid red;
+            
+
+            // grid-template-columns: auto auto;    //if want to have 2x2 box for images
+
+            .monitor-stand-img {
+                //element properties
                 position: relative;
-                top: 24%;
+                width: var(--img-width);
+                height: auto;
+
+                //image border
+                border-radius: 3px;
+                transition: .5s;
+                box-shadow: 1px 3px 7px grey;
+
+                &:hover {
+                    transform: scale(1.2);  //makes images on hover bigger
+                    z-index: 2;
+                    
+                }
+            }
+        }
+
+        .monitor-stand-info {
+            //declearing font family for text
+            font-family: var(--site-font);
+            position: relative;
+            // top: 20px;
+
+            .text-heading {
                 text-align: center;
+                font-weight: 400;
+                color: var(--font-color);
+                
+                margin-bottom: 5px;
+            }
+
+            .monitor-stand-text {
+                //declaration of how text box will be
+                width: auto;
+                height: 160px;
+                background-color: #fff;
+                opacity: .7;
+                border-radius: 4px;
+
+                //position of the text in the element
+                padding: 5px 10px;
+
+                // border: 1px solid aqua;
             }
         }
     }
+}
+
+
+@media (max-width: 450px) {
+
+    header {
+        height: 250px;
+        width: 100%;
+        display: flex;
+        border: 1px solid black;
+    
+        position: relative;
+    
+        img {
+            height: 250px;
+            width: auto;
+    
+            border: 1px solid black;
+        }
+    
+        nav {
+            --col-cout: 3;
+            --row-cout: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            grid-template-columns: repeat(var(--col-cout));
+            // grid-template-rows: repeat(var(--row-cout));
+            gap: var(--box-gap);
+            border: 1px solid black;
+            height: 248px;
+    
+            position: absolute;
+            right: 0;
+            
+            .about-us, .about-product, .contact {
+                padding: 5px;   //to center text inside of an element put height and width to auto and just apply padding
+                width: 95px;    //can specify width, padding will not mess it up
+                height: auto;
+                // border: 1px solid black;
+                font-size: 1.5em;
+                font-family: var(--button-font);
+                cursor: pointer;
+                text-align: center;
+                
+                color: var(--font-color);
+    
+                &:hover {
+                    background-color: var(--button-hover-bg);
+                    color: var(--font-color-hover);
+                    animation: showOnScreen .4s linear forwards;
+                }
+            }
+        }
+    }
+    
+}
+
+
+@keyframes showOnScreen {
+    from {opacity: 0;}
+    to { opacity: 1;}
 }
