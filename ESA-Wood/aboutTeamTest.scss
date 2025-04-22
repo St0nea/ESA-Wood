@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
 * {
 
     margin: 0;
@@ -12,13 +18,24 @@
     --box-gap: 30px;
     --font-color: #d0a32c;
     --font-color-hover: #042b2b;
-    overflow-x: hidden;
-}
+    --show-product-gap: 180px;
+    // overflow-x: hidden;
 
-body {
-    height: 2000px;
-}
+    //removing link text decorations
+    a:link {
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: none;
+    }
+    a:active {
+        text-decoration: none;
+    }
+    a:visited {
+        text-decoration: none;
+    }
 
+}
 
 //WELCOME PAGE
 header {
@@ -58,25 +75,31 @@ header {
         // grid-template-columns: repeat(var(--col-cout));  //needed for when you have more(above 5) elements to work with
 
         .about-us, .about-product, .contact {
-            font-family: var(--site-font);
-            font-size: var(--button-font-size);
-            padding: 5px;
             text-align: center;
-            color: var(--font-color);
 
-            border-radius: 3px;
+            //applying style to <a> instead of classes because <a> tag keeps the text in its tag, before the classes had text in them but changed for better outcome, &hover applies to parent element for some reason? (figure that out)
+            a {
+                font-family: var(--site-font);
+                font-size: var(--button-font-size);
+                padding: 5px;
+                color: var(--font-color);
 
-            position: relative;
-            // left: 15px;
+                border-radius: 3px;
 
-            // border: 1px solid black;
+                position: relative;
+                // left: 15px;
 
-            cursor: pointer;
+                // border: 1px solid black;
 
-            &:hover {
-                background-color: var(--button-hover-bg);
-                color: var(--font-color-hover);
-                animation: showOnScreen .4s linear forwards;
+                cursor: pointer;
+
+                //removing link text decorations
+
+                &:hover {
+                    background-color: var(--button-hover-bg);
+                    color: var(--font-color-hover);
+                    animation: showOnScreen .4s linear forwards;
+                }
             }
         }
 
@@ -90,7 +113,7 @@ header {
 
 //PRODUCT RANGE
 .show-of-products {
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     height: auto;
@@ -98,13 +121,16 @@ header {
     //setting font for child elements
     font-family: var(--site-font);
 
-    border: 1px solid black;
+    //setting gap between different products
+    gap: var(--show-product-gap);
+
+    // border: 1px solid black;
     
     .monitor-stand {
         //sets how elements will be placed in the site
         display: grid;
 
-        border: 1px solid aqua;
+        // border: 1px solid aqua;
 
         .monitor-stand-heading {
             //setting font
@@ -146,7 +172,7 @@ header {
                 //image border
                 border-radius: 3px;
                 transition: .5s;
-                box-shadow: 1px 3px 7px grey;
+                box-shadow: 1px 3px 7px black;
 
                 &:hover {
                     transform: scale(1.2);  //makes images on hover bigger
@@ -185,7 +211,86 @@ header {
             }
         }
     }
+
+    //OBESALNIK ZA KLJUCE, DENARNICO
+    .key-hanger {
+        display: grid;
+
+        font-family: var(--site-font);
+
+        // border: 1px solid red;
+
+        .key-hanger-heading {
+            text-align: center;
+            font-weight: 400;
+
+            color: var(--font-color);
+
+            margin-bottom: 20px;
+        }
+
+        .key-hanger-info {
+            position: relative;
+            
+            margin-bottom: 25px;
+
+            // border: 1px solid beige;
+
+            .key-hanger-text-heading {
+                text-align: center;
+                font-weight: 400;
+                color: var(--font-color);
+            
+                margin-bottom: 5px;
+            }
+
+            .key-hanger-text {
+
+                //declaration of how text box will be
+                width: auto;
+                height: 160px;
+                background-color: #fff;
+                opacity: .7;
+                border-radius: 4px;
+
+                //position of the text in the element
+                padding: 5px 10px;
+            }
+        }
+
+        .key-hanger-images {
+            --img-width: 200px;
+            --image-gap: 20px;
+
+            width: 900px;
+            height: 320px;
+
+            //setting images in the center of the parent element(in this case key-hanger-images)
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: var(--image-gap);
+
+            .key-hanger-img {
+                height: auto;
+                width: var(--img-width);
+
+                //image border, transition & shadow
+                border-radius: 3px;
+                transition: .5s;
+                box-shadow: 1px 3px 7px black;
+
+                &:hover {
+                    scale: 1.2;
+                    z-index: 2;
+                }
+            }
+        }
+    }
 }
+
+
 
 
 @media (max-width: 450px) {
