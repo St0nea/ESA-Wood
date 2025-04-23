@@ -18,6 +18,7 @@ html, body {
     --box-gap: 30px;
     --font-color: #d0a32c;
     --font-color-hover: #042b2b;
+    --font-color-basic: #fff;
     --show-product-gap: 180px;
     // overflow-x: hidden;
 
@@ -110,6 +111,32 @@ header {
     }
 }
 
+//ABOUT THE TEAM
+.about-team-container {
+
+    .team-heading {
+
+    }
+
+    .about-team-image {
+
+        .team-image {
+
+        }
+    }
+    
+    .about-team-info {
+
+        .about-team-text-heading {
+            
+        }
+
+        .about-team-text {
+
+        }
+    }
+}
+
 
 //PRODUCT RANGE
 .show-of-products {
@@ -123,6 +150,9 @@ header {
 
     //setting gap between different products
     gap: var(--show-product-gap);
+
+    //footer spacing
+    margin-bottom: 120px;
 
     // border: 1px solid black;
     
@@ -287,66 +317,114 @@ header {
                 }
             }
         }
-    }
+    }   
 }
 
+hr {
+    width: 100%;
+    height: 4px;
+    background-color: #d0a32c;
+    border: none;
+}
 
+//TEAM CONTACT AND SOCIAL MEDIA
+.contact-container {
+    --contacts-gap: 150px;
 
-
-@media (max-width: 450px) {
-
-    header {
-        height: 250px;
-        width: 100%;
-        display: flex;
-        border: 1px solid black;
     
-        position: relative;
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    //when working with more elements that need to be centered use justify-content: space-between;
+
+    //applying font to all child elements
+    font-family: var(--site-font);
     
-        img {
-            height: 250px;
-            width: auto;
-    
-            border: 1px solid black;
+    .email-container {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+
+        width: 220px;
+
+        // border: 1px solid aqua;
+
+        .email-heading {
+            font-weight: 500;
+            color: var(--font-color);
         }
-    
-        nav {
-            --col-cout: 3;
-            --row-cout: 1;
+
+        .team-email {
+            color: var(--font-color-basic);
+        }
+    }
+
+    .social-media {
+        --social-media-gap: 50px;
+        --icon-color: #d0a32c;
+
+
+        width: 200px;
+        height: auto;
+
+        text-align: center;
+
+        // border: 1px solid red;
+
+        .social-media-heading {
+            font-weight: 500;
+            color: var(--font-color);
+        }
+
+        .social-media-links {
             display: flex;
-            justify-content: center;
+            gap: var(--social-media-gap);
+
             align-items: center;
-            grid-template-columns: repeat(var(--col-cout));
-            // grid-template-rows: repeat(var(--row-cout));
-            gap: var(--box-gap);
-            border: 1px solid black;
-            height: 248px;
-    
-            position: absolute;
-            right: 0;
-            
-            .about-us, .about-product, .contact {
-                padding: 5px;   //to center text inside of an element put height and width to auto and just apply padding
-                width: 95px;    //can specify width, padding will not mess it up
-                height: auto;
-                // border: 1px solid black;
-                font-size: 1.5em;
-                font-family: var(--button-font);
-                cursor: pointer;
-                text-align: center;
-                
-                color: var(--font-color);
-    
-                &:hover {
-                    background-color: var(--button-hover-bg);
-                    color: var(--font-color-hover);
-                    animation: showOnScreen .4s linear forwards;
-                }
+            justify-content: center;
+
+            .instagram-icon,.tiktok-icon {
+                font-size: 2em;
+                color: #fff;
             }
         }
     }
-    
+
+    .company-logo {
+        height: 200px;
+        width: auto;
+    }
+
+    .slogan-container {
+        width: 200px;
+
+        position: relative;
+        bottom: 5px;
+
+        // border: 1px solid lightblue;
+
+        .slogan-text {
+            font-weight: 400;
+            font-size: 1em;
+            color: var(--font-color);
+        }
+    }
+
+    .my-own-contact {
+        position: relative;
+        top: 10px;
+
+        width: 200px; 
+
+        font-size: 0.6em;
+
+        // border: 1px solid brown;
+    }
 }
+
 
 
 @keyframes showOnScreen {
