@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+* {
+
+    margin: 0;
+    padding: 0;
+    background-color: #042b2b;
+    --site-font:Poppins;
+    --button-font-size: 1.5rem;
+    --button-hover-bg: #d0a32c;
+    --button-width: 95px;
+    --box-gap: 30px;
+    --font-color: #d0a32c;
+    --font-color-hover: #042b2b;
+    --font-color-basic: #fff;
+    --show-product-gap: 180px;
+
+    //removing link text decorations
+    a:link {
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: none;
+    }
+    a:active {
+        text-decoration: none;
+    }
+    a:visited {
+        text-decoration: none;
+    }
+
+}
+
+//WELCOME PAGE
+header {
+    height: 100vh;
+    width: auto;
+
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-rows: auto;
+
+    img {
+        position: relative;
+        top: 100px;
+    }
+
+    nav {    
+        //setting up the buttons
+        position: relative;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        gap: var(--box-gap);
+        
+        
+        // --col-cout: 3;
+        // --row-cout: 1;
+        // grid-template-columns: repeat(var(--col-cout));  //needed for when you have more(above 5) elements to work with
+
+        .about-us, .about-product, .contact {
+            text-align: center;
+
+            //applying style to <a> instead of classes because <a> tag keeps the text in its tag, before the classes had text in them but changed for better outcome, &hover applies to parent element for some reason? (figure that out)
+            a {
+                font-family: var(--site-font);
+                font-size: var(--button-font-size);
+                padding: 5px;
+                color: var(--font-color);
+
+                border-radius: 3px;
+
+                position: relative;
+                // left: 15px;
+
+                cursor: pointer;
+
+                &:hover {
+                    background-color: var(--button-hover-bg);
+                    color: var(--font-color-hover);
+                    animation: showOnScreen .4s linear forwards;
+                }
+            }
+        }
+
+        .about-product {
+            position: relative;
+            // left: 3px;   //potentially maybe
+        }
+    }
+}
+
+//ABOUT THE TEAM
+.about-team-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    font-family: var(--site-font);
+
+    margin-top: 120px;
+    margin-bottom: 120px;
+    
+    .team-heading {
+        font-weight: 400;    
+        color: var(--font-color);
+        
+        //centering the heading
+        text-align: center;
+
+        margin-bottom: 15px;
+    }
+    
+    .about-team-info {
+        //pre-setting the width of the whole container and setting 
+        //width: auto; in a child element so it appends 100% width of parent element
+        width: 900px;
+
+        .about-team-text-heading {
+            font-weight: 400;
+            color: var(--font-color);
+
+            //centering the heading
+            text-align: center;
+
+            margin-bottom: 5px;
+        }
+
+        .about-team-text {
+            width: auto;
+            height: 160px;
+
+            background-color: #fff;
+            opacity: .7;
+            border-radius: 4px;
+
+            //position of the text in the element
+            padding: 5px 10px;
+        }
+    }
+}
+
+
+//PRODUCT RANGE
+.show-of-products {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+
+    //setting font for child elements
+    font-family: var(--site-font);
+
+    //setting gap between different products
+    gap: var(--show-product-gap);
+
+    //footer spacing
+    margin-bottom: 120px;
+    
+    .monitor-stand {
+        //sets how elements will be placed in the site
+        display: grid;
+
+        .monitor-stand-heading {
+            //setting font
+            font-weight: 400;
+            color: var(--font-color);
+            text-align: center;
+        }
+
+        .monitor-stand-images {
+            //declearing image properties
+            --img-width: 200px;
+            --image-gap: 20px;
+            
+            //setting parent element size
+            width: 900px;
+            height: 320px;
+            
+            //parent element properties
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--image-gap);
+            overflow-y: hidden;
+
+            //setting margin-bottom for textbox to go lower without it making unnecessary overflow
+            margin-bottom: 20px;
+            
+
+            // grid-template-columns: auto auto;    //if want to have 2x2 box for images
+
+            .monitor-stand-img {
+                //element properties
+                position: relative;
+                width: var(--img-width);
+                height: auto;
+
+                //image border
+                border-radius: 3px;
+                transition: .5s;
+                box-shadow: 1px 3px 7px black;
+
+                &:hover {
+                    transform: scale(1.2);  //makes images on hover bigger
+                    z-index: 2;
+                    
+                }
+            }
+        }
+
+        .monitor-stand-info {
+            //declearing font family for text
+            font-family: var(--site-font);
+            position: relative;
+
+            width: 900px;
+
+            .text-heading {
+                text-align: center;
+                font-weight: 400;
+                color: var(--font-color);
+                
+                margin-bottom: 5px;
+            }
+
+            .monitor-stand-text {
+                //declaration of how text box will be
+                width: auto;
+                height: 160px;
+                background-color: #fff;
+                opacity: .7;
+                border-radius: 4px;
+
+                //position of the text in the element
+                padding: 5px 10px;
+            }
+        }
+    }
+
+    //OBESALNIK ZA KLJUCE, DENARNICO
+    .key-hanger {
+        display: grid;
+
+        font-family: var(--site-font);
+
+        .key-hanger-heading {
+            text-align: center;
+            font-weight: 400;
+
+            color: var(--font-color);
+
+            margin-bottom: 20px;
+        }
+
+        .key-hanger-info {
+            position: relative;
+            
+            margin-bottom: 25px;
+
+            //width for hovering images to be aligned with it
+            width: 900px;
+
+            .key-hanger-text-heading {
+                text-align: center;
+                font-weight: 400;
+                color: var(--font-color);
+            
+                margin-bottom: 5px;
+            }
+
+            .key-hanger-text {
+
+                //declaration of how text box will be
+                width: auto;
+                height: 160px;
+                background-color: #fff;
+                opacity: .7;
+                border-radius: 4px;
+
+                //position of the text in the element
+                padding: 5px 10px;
+            }
+        }
+
+        .key-hanger-images {
+            --img-width: 200px;
+            --image-gap: 20px;
+
+            width: 900px;
+            height: 320px;
+
+            //setting images in the center of the parent element(in this case key-hanger-images)
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: var(--image-gap);
+
+            .key-hanger-img {
+                height: auto;
+                width: var(--img-width);
+
+                //image border, transition & shadow
+                border-radius: 3px;
+                transition: .5s;
+                box-shadow: 1px 3px 7px black;
+
+                &:hover {
+                    scale: 1.2;
+                    z-index: 2;
+                }
+            }
+        }
+    }   
+}
+
+hr {
+    width: 100%;
+    height: 4px;
+    background-color: #d0a32c;
+    border: none;
+}
+
+//TEAM CONTACT AND SOCIAL MEDIA
+.contact-container {
+    --contacts-gap: 150px;
+
+    
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    //when working with more elements that need to be centered use justify-content: space-between;
+
+    //applying font to all child elements
+    font-family: var(--site-font);
+
+    //moving elements more into the middle for them not being on the borders of the site
+    padding: 0px 5px;
+    
+    .email-container {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+
+        width: 220px;
+
+        // border: 1px solid aqua;
+
+        .email-heading {
+            font-weight: 500;
+            color: var(--font-color);
+        }
+
+        .team-email {
+            color: var(--font-color-basic);
+        }
+    }
+
+    .social-media {
+        --social-media-gap: 50px;
+        --icon-color: #d0a32c;
+
+
+        width: 200px;
+        height: auto;
+
+        text-align: center;
+
+        .social-media-heading {
+            font-weight: 500;
+            color: var(--font-color);
+        }
+
+        .social-media-links {
+            display: flex;
+            gap: var(--social-media-gap);
+
+            align-items: center;
+            justify-content: center;
+
+            .instagram-icon,.tiktok-icon {
+                font-size: 2em;
+                color: #fff;
+            }
+        }
+    }
+
+    .company-logo {
+        height: 200px;
+        width: auto;
+    }
+
+    .slogan-container {
+        width: 200px;
+
+        position: relative;
+        bottom: 5px;
+
+        .slogan-text {
+            font-weight: 400;
+            font-size: 1em;
+            color: var(--font-color);
+        }
+    }
+
+    .my-own-contact {
+        position: relative;
+        top: 10px;
+
+        width: 200px; 
+
+        font-size: 0.6em;
+    }
+}
+
+
+
+@keyframes showOnScreen {
+    from {opacity: 0;}
+    to { opacity: 1;}
+}
